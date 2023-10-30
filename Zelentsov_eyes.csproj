@@ -181,6 +181,7 @@
     <Resource Include="src\Глазки-save.png" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="src\EyesFilledZelentsov.sql" />
     <Resource Include="src\picture.png" />
     <Resource Include="agents\agent_1.png" />
     <Resource Include="agents\agent_10.png" />
