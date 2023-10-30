@@ -26,5 +26,21 @@ namespace Zelentsov_eyes
             var currentAgent = Zelentsov_eyesEntities.GetContext().Agent.ToList();
             AgentsListView.ItemsSource = currentAgent;
         }
+
+        public void updateservices()
+        {
+            var currentAgent = Zelentsov_eyesEntities.GetContext().Agent.ToList();
+            currentAgent = currentAgent.Where(p => 
+            p.Title.ToLower().Contains(TBSearch.Text.ToLower()) 
+            || p.Phone.Contains(TBSearch.Text.ToLower()) 
+            || p.Email.ToLower().Contains(TBSearch.Text.ToLower())).ToList();
+
+            AgentsListView.ItemsSource = currentAgent;
+        }
+
+        private void TBSearch_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            updateservices();
+        }
     }
 }
