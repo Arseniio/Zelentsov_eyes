@@ -19,15 +19,24 @@
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
         <TextBox Name="TBSearch" TextChanged="TBSearch_TextChanged" VerticalAlignment="Center" Height="35" Grid.ColumnSpan="2" Margin="10 0 5 0"/>
-        <ComboBox VerticalAlignment="Center" Grid.Column="2" Height="35" Margin="5 0 5 0">
+        <ComboBox Name="CBSort" SelectionChanged="CBSort_SelectionChanged" VerticalAlignment="Center" Grid.Column="2" Height="35" Margin="5 0 5 0">
+            <TextBlock>Без сортировки</TextBlock>
             <TextBlock>По возрастанию наименования</TextBlock>
             <TextBlock>По убыванию наименования</TextBlock>
-            <TextBlock>По возрастанию размера скидки</TextBlock>
-            <TextBlock>По убыванию размера скидки</TextBlock>
+            <TextBlock>По (nw)возрастанию размера скидки</TextBlock>
+            <TextBlock>По (nw)убыванию размера скидки</TextBlock>
             <TextBlock>По возрастанию приоритета агента</TextBlock>
             <TextBlock>По убыванию приоритета агента</TextBlock>
         </ComboBox>
-        <ComboBox VerticalAlignment="Center" Grid.Column="3" Height="35" Margin="5 0 10 0"/>
+        <ComboBox Name="CBFilter" SelectionChanged="CBFilter_SelectionChanged" VerticalAlignment="Center" Grid.Column="3" Height="35" Margin="5 0 10 0">
+            <TextBlock>Без фильтрации</TextBlock>
+            <TextBlock>ЗАО</TextBlock>
+            <TextBlock>МКК</TextBlock>
+            <TextBlock>МФО</TextBlock>
+            <TextBlock>ОАО</TextBlock>
+            <TextBlock>ООО</TextBlock>
+            <TextBlock>ПАО</TextBlock>
+        </ComboBox>
         <ListView Name="AgentsListView" Grid.ColumnSpan="10" Grid.Row="1">
             <ListView.ItemTemplate>
                 <DataTemplate>
