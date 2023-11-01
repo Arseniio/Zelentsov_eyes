@@ -20,12 +20,88 @@ namespace Zelentsov_eyes
     /// </summary>
     public partial class AgentPage : Page
     {
+        int CountRecords,CountPage,CurrentPage = 0;
+        List<Agent> CurrentPageList = new List<Agent>();
+        List<Agent> TableList;
+
+        public void ChangePage(int direction,int? selectedPage) {
+            CurrentPageList.Clear();
+            CountRecords = TableList.Count;
+            if (CountRecords % 10 > 0) CountPage = CountRecords / 10 + 1;
+            else CountPage = CountRecords / 10;
+
+            Boolean IfUpdate = true;
+
+            int min;
+            if (selectedPage.HasValue)
+            {
+                if( selectedPage >= 0 && selectedPage <= CountPage)
+                {
+                    CurrentPage = (int)selectedPage;
+                    min = CurrentPage * 10 + 10 < CountRecords ? CurrentPage * 10 + 10 : CountRecords;
+                    for(int i = CurrentPage * 10; i < min; i++)
+                    {
+                        CurrentPageList.Add(TableList[i]);
+                    }
+                }
+            }
+            else
+            {
+                switch (direction)
+                {
+                    case 1:
+                        if (CurrentPage > 0)
+                        {
+                            CurrentPage--;
+                            min = CurrentPage * 10 + 10 < CountRecords ? CurrentPage * 10 + 10 : CountRecords;
+                            for (int i = CurrentPage * 10; i < min; i++)
+                            {
+                                CurrentPageList.Add(TableList[i]);
+                            }
+                        }
+                        else IfUpdate = false;
+                        break;
+                    case 2:
+                        if (CurrentPage < CountPage-1)
+                        {
+                            CurrentPage++;
+                            min = CurrentPage * 10 + 10 < CountRecords ? CurrentPage * 10 + 10 : CountRecords;
+                            for (int i = CurrentPage * 10; i < min; i++)
+                            {
+                                CurrentPageList.Add(TableList[i]);
+                            }
+                        }
+                        else IfUpdate = false;
+
+                        break;
+                        
+                }
+            }
+                if (IfUpdate)
+                {
+                    PageListBox.Items.Clear();
+                    for (int i = 1; i <= CountPage; i++)
+                    {
+                        PageListBox.Items.Add(i);
+                    }
+                    min = CurrentPage * 10 + 10 < CountRecords ? CurrentPage * 10 + 10 : CountRecords;
+
+                    RecordsTB.Text = min.ToString() + " из " + CountRecords.ToString();
+                    PageListBox.SelectedIndex = CurrentPage;
+                    AgentsListView.ItemsSource = CurrentPageList;
+                AgentsListView.Items.Refresh();
+                }
+
+        }
+
         public AgentPage()
         {
             InitializeComponent();
-
+            CBFilter.SelectedIndex = 0;
+            CBSort.SelectedIndex = 0;
             var currentAgent = Zelentsov_eyesEntities.GetContext().Agent.ToList();
             AgentsListView.ItemsSource = currentAgent;
+            updateservices();
         }
 
         public void updateservices()
@@ -46,7 +122,7 @@ namespace Zelentsov_eyes
             //              ОАО
             //              ООО
             //              ПАО
-
+            //TBSearch.Text = CBFilter.Text.ToString(); 
             //currentAgent = currentAgent.Where(p => p.AgentTypeName.ToString() == CBFilter.Text.ToString()).ToList();
             switch (CBFilter.SelectedIndex)
             {
@@ -71,7 +147,7 @@ namespace Zelentsov_eyes
                     currentAgent = currentAgent.Where(p => p.AgentTypeName.ToString() == "ПАО").ToList();
                     break;
             }
-
+            
             switch (CBSort.SelectedIndex)
             {
                 case 0:
@@ -98,11 +174,29 @@ namespace Zelentsov_eyes
             || p.Email.ToLower().Contains(TBSearch.Text.ToLower())).ToList();
 
             AgentsListView.ItemsSource = currentAgent;
+            TableList = currentAgent;
+            ChangePage(0,0);
         }
 
         private void TBSearch_TextChanged(object sender, TextChangedEventArgs e)
         {
             updateservices();
+        }
+
+        private void RightDirBtn_Click(object sender, RoutedEventArgs e)
+        {
+            ChangePage(2, null);
+
+        }
+
+        private void LeftDirBtn_Click(object sender, RoutedEventArgs e)
+        {
+            ChangePage(1, null);
+        }
+
+        private void PageListBox_MouseUp(object sender, MouseButtonEventArgs e)
+        {
+            ChangePage(0, Convert.ToInt32(PageListBox.SelectedItem.ToString()) - 1);
         }
 
         private void CBSort_SelectionChanged(object sender, SelectionChangedEventArgs e)

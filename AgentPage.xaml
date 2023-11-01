@@ -11,6 +11,7 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="45"/>
             <RowDefinition/>
+            <RowDefinition Height="25"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
@@ -80,5 +81,17 @@
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
+        <StackPanel Grid.Row="3" Grid.Column="4" Orientation="Horizontal">
+            <TextBlock Name="RecordsTB"/>
+            <Button Name="LeftDirBtn" Content="&lt;" Width="20" Height="20" Click="LeftDirBtn_Click"/>
+            <ListBox Name="PageListBox" MouseUp="PageListBox_MouseUp">
+                <ListBox.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <WrapPanel Orientation="Horizontal"/>
+                    </ItemsPanelTemplate>
+                </ListBox.ItemsPanel>
+            </ListBox>
+            <Button Name="RightDirBtn" Content="&gt;" Width="20" Height="20" Click="RightDirBtn_Click"/>
+        </StackPanel>
     </Grid>
 </Page>
