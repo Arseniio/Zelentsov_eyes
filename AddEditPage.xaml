@@ -5,7 +5,8 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:Zelentsov_eyes"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
+      d:DesignHeight="301" d:DesignWidth="784"
+      FontFamily="Century Gothic" Height="301" Width="784" 
       Title="AddEditPage">
 
 
@@ -25,33 +26,32 @@
             <RowDefinition Height="1.5*"/>
             <RowDefinition Height="1.5*"/>
         </Grid.RowDefinitions>
-        <TextBlock Margin="10 0 0 0" Grid.Row="0" VerticalAlignment="Center" FontSize="20" Text="Наименование"/>
-        <TextBox Grid.Column="1" Width="210" Height="35"/>
+        <TextBlock Margin="3 0 0 0" Grid.Row="0" VerticalAlignment="Center" FontSize="20" Text="Наименование"/>
+        <TextBox Grid.Column="1" Width="185" Height="35" Text="{Binding Title}" />
 
-        <TextBlock Margin="10 0 0 0" Grid.Row="1" VerticalAlignment="Center" FontSize="20" Text="Адрес"/>
-        <TextBox Grid.Row="1" Grid.Column="1" Width="210" Height="35"/>
+        <TextBlock Margin="3 0 0 0" Grid.Row="1" VerticalAlignment="Center" FontSize="20" Text="Адрес"/>
+        <TextBox Grid.Row="1" Grid.Column="1" Width="185" Height="35" Text="{Binding Address}" />
 
 
-        <TextBlock Margin="10 0 0 0" Grid.Row="2" VerticalAlignment="Center" FontSize="20" Text="Директор"/>
-        <TextBox Grid.Row="2" Grid.Column="1" Width="210" Height="35"/>
+        <TextBlock Margin="3 0 0 0" Grid.Row="2" VerticalAlignment="Center" FontSize="20" Text="Директор"/>
+        <TextBox Grid.Row="2" Grid.Column="1" Width="185" Height="35" Text="{Binding DirectorName}"/>
 
-        <TextBlock Margin="10 0 0 0" Grid.Row="4" VerticalAlignment="Center" FontSize="20" Text="Логотип"/>
+        <TextBlock Margin="3 0 0 0" Grid.Row="4" VerticalAlignment="Center" FontSize="20" Text="Логотип"/>
 
-        <TextBlock Margin="10 0 0 0" Grid.Row="0" Grid.Column="2" VerticalAlignment="Center" FontSize="20" Text="Директор"/>
-        <TextBox Grid.Row="0" Grid.Column="3" Width="210" Height="35"/>
-
-        <TextBlock Margin="10 0 0 0" Grid.Row="1" Grid.Column="2" VerticalAlignment="Center" FontSize="20" Text="Директор"/>
-        <TextBox Grid.Row="1" Grid.Column="3" Width="210" Height="35"/>
-        <TextBlock Margin="10 0 0 0" Grid.Row="2" Grid.Column="2" VerticalAlignment="Center" FontSize="20" Text="Директор"/>
-        <TextBox Grid.Row="2" Grid.Column="3" Width="210" Height="35"/>
-        <TextBlock Margin="10 0 0 0" Grid.Row="3" Grid.Column="2" VerticalAlignment="Center" FontSize="20" Text="Директор"/>
-        <TextBox Grid.Row="3" Grid.Column="3" Width="210" Height="35"/>
-        <TextBlock Margin="10 0 0 0" Grid.Row="4" Grid.Column="2" VerticalAlignment="Center" FontSize="20" Text="Директор"/>
-        <TextBox Grid.Row="4" Grid.Column="3" Width="210" Height="35"/>
-        <TextBlock Margin="10 0 0 0" Grid.Row="5" Grid.Column="2" VerticalAlignment="Center" FontSize="20" Text="Директор"/>
-        <TextBox Grid.Row="5" Grid.Column="3" Width="210" Height="35"/>
-        <TextBlock Margin="10 0 0 0" Grid.Row="6" Grid.Column="2" VerticalAlignment="Center" FontSize="20" Text="Директор"/>
-        <TextBox Grid.Row="6" Grid.Column="3" Width="210" Height="35"/>
-
+        <TextBlock Margin="3 0 0 0" Grid.Row="0" Grid.Column="2" VerticalAlignment="Center" FontSize="20" Text="Телефон"/>
+        <TextBox Grid.Row="0" Grid.Column="3" Width="165" Height="35" Text="{Binding Phone}"/>
+        <TextBlock Margin="3 0 0 0" Grid.Row="1" Grid.Column="2" VerticalAlignment="Center" FontSize="20" Text="Приоритет"/>
+        <TextBox Grid.Row="1" Grid.Column="3" Width="165" Height="35" Text="{Binding Priority}"/>
+        <TextBlock Margin="3 0 0 0" Grid.Row="2" Grid.Column="2" VerticalAlignment="Center" FontSize="20" Text="Эл почта"/>
+        <TextBox Grid.Row="2" Grid.Column="3" Width="165" Height="35" Text="{Binding Email}"/>
+        <TextBlock Margin="3 0 0 0" Grid.Row="3" Grid.Column="2" VerticalAlignment="Center" FontSize="20" Text="ИНН"/>
+        <TextBox Grid.Row="3" Grid.Column="3" Width="165" Height="35" Text="{Binding INN}"/>
+        <TextBlock Margin="3 0 0 0" Grid.Row="4" Grid.Column="2" VerticalAlignment="Center" FontSize="20" Text="КПП"/>
+        <TextBox Grid.Row="4" Grid.Column="3" Width="165" Height="35" Text="{Binding KPP}"/>
+        <TextBlock Margin="3 0 0 0" Grid.Row="5" Grid.Column="2" VerticalAlignment="Center" FontSize="20" Text="Тип"/>
+        <TextBox Grid.Row="5" Grid.Column="3" Width="165" Height="35" Text="{Binding AgentType}"/>
+        <TextBlock Margin="3 0 0 0" Grid.Row="6" Grid.Column="2" VerticalAlignment="Center" FontSize="20" Text="Директор"/>
+        <TextBox Grid.Row="6" Grid.Column="3" Width="165" Height="35" Text="idk"/>
+        <Button Grid.Row="6" Width="120" Height="35" Content="Сохранить"/>
     </Grid>
 </Page>

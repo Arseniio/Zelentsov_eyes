@@ -48,10 +48,11 @@
                             <RowDefinition Height="*"/>
                             <RowDefinition Height="*"/>
                             <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
                         </Grid.RowDefinitions>
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="200"/>
-                            <ColumnDefinition/>
+                            <ColumnDefinition />
                         </Grid.ColumnDefinitions>
                         <Image Width="100" Grid.Column="0" Grid.RowSpan="10" Stretch="UniformToFill" HorizontalAlignment="Center">
                             <Image.Source>
@@ -76,6 +77,11 @@
                         <StackPanel Grid.Column="1" Orientation="Horizontal" Grid.Row="4">
                             <TextBlock Text="Приоритетность: "/>
                             <TextBlock Text="{Binding Priority}"/>
+                        </StackPanel>
+                        <StackPanel Grid.Column="1" Grid.Row="5" Orientation="Horizontal">
+                            <Button HorizontalAlignment="Left" Width="120" Height="25" Margin="0 0 15 0" Name="EditButton" Click="EditButton_Click" Content="Редактировать"/>
+                            <Button HorizontalAlignment="Left" Width="120" Height="25" Margin="0 0 15 0" Content="Удалить"/>
+                            <Button HorizontalAlignment="Left" Width="120" Height="25" Margin="0 0 15 0" Content="???"/>
                         </StackPanel>
                     </Grid>
                 </DataTemplate>

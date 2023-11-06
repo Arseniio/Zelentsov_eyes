@@ -20,9 +20,10 @@ namespace Zelentsov_eyes
     /// </summary>
     public partial class AddEditPage : Page
     {
-        public AddEditPage()
+        public AddEditPage(Agent SelectedAgent = null)
         {
             InitializeComponent();
+            DataContext = SelectedAgent;
         }
     }
 }

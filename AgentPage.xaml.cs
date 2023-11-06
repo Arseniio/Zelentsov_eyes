@@ -199,6 +199,7 @@ namespace Zelentsov_eyes
             ChangePage(0, Convert.ToInt32(PageListBox.SelectedItem.ToString()) - 1);
         }
 
+
         private void CBSort_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             updateservices();
@@ -207,6 +208,9 @@ namespace Zelentsov_eyes
         private void CBFilter_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             updateservices();
+        }
+        private void EditButton_Click(object sender, RoutedEventArgs e) {
+            FrameSetter.iFrame.Navigate(new AddEditPage((sender as Button).DataContext as Agent));
         }
     }
 }
