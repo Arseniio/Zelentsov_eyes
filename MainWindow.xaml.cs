@@ -31,8 +31,7 @@ namespace Zelentsov_eyes
         {
             MainFrame.GoBack();
         }
-
-        private void MainFrame_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
+        private void MainFrame_ContentRendered(object sender, EventArgs e)
         {
             if (MainFrame.CanGoBack) BackBtn.Visibility = Visibility.Visible;
             else BackBtn.Visibility = Visibility.Hidden;

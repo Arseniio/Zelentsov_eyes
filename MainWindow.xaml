@@ -17,6 +17,6 @@
         <Image Source="src/Глазки-save.png" Grid.Row="0" HorizontalAlignment="Left" Width="80"/>
         <TextBlock Text="Глазки Save" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="32"/>
         <Button Width="120" Height="25" Content="Назад" VerticalAlignment="Center" Name="BackBtn" HorizontalAlignment="Right" Margin="0 0 20 0" Click="BackBtn_Click"/>
-        <Frame Grid.Row="1" Name="MainFrame" NavigationUIVisibility="Hidden" IsVisibleChanged="MainFrame_IsVisibleChanged"/>
+        <Frame Grid.Row="1" Name="MainFrame" NavigationUIVisibility="Hidden" ContentRendered="MainFrame_ContentRendered"/>
     </Grid>
 </Window>

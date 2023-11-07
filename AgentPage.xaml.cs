@@ -31,7 +31,6 @@ namespace Zelentsov_eyes
             else CountPage = CountRecords / 10;
 
             Boolean IfUpdate = true;
-
             int min;
             if (selectedPage.HasValue)
             {
@@ -201,6 +200,16 @@ namespace Zelentsov_eyes
 
 
         private void CBSort_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            updateservices();
+        }
+
+        private void addBtn_Click(object sender, RoutedEventArgs e)
+        {
+            FrameSetter.iFrame.Navigate(new AddEditPage());
+        }
+
+        private void Grid_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
         {
             updateservices();
         }
