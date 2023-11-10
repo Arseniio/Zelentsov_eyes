@@ -48,5 +48,59 @@ namespace Zelentsov_eyes
                 return AgentType.Title;
             }
         }
+
+        public int Sales
+        {
+            get {
+                int total = 0;
+                foreach (ProductSale productSale in this.ProductSale)
+                {
+                    total += productSale.ProductCount * Convert.ToInt32(productSale.Product.MinCostForAgent);
+                }
+                return total;
+            }
+        }
+
+        public int SalePercent
+        {
+            get
+            {
+                int total = 0;
+                foreach (ProductSale productSale in this.ProductSale)
+                {
+                    total += productSale.ProductCount * 10000;
+                    //total += productSale.ProductCount * Convert.ToInt32(productSale.Product.MinCostForAgent);
+                }
+                int sale = 0;
+                if (total > 10000 && total < 500000)
+                {
+                    sale = 5;
+                }
+                else if (total > 50000 && total < 150000)
+                {
+                    sale = 10;
+                }
+                else if (total > 150000 && total < 500000)
+                {
+                    sale = 20;
+                }
+                else if (total > 500000)
+                {
+                    sale = 25;
+                }
+                return sale;
+            }
+        }
+        public string ColorForSale
+        {
+            get
+            {
+                if(SalePercent > 20)
+                {
+                    return "#FFE9F9";
+                }
+                return "";
+            }
+        }
     }
 }

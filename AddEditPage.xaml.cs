@@ -1,4 +1,5 @@
 ﻿using System;
+using Microsoft.Win32;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -27,6 +28,7 @@ namespace Zelentsov_eyes
             if (SelectedAgent != null)
             {
                 this.CurrentAgent = SelectedAgent;
+                TypeCB.SelectedIndex = CurrentAgent.AgentTypeID-1;
             }
             DataContext = CurrentAgent;
         }
@@ -70,11 +72,11 @@ namespace Zelentsov_eyes
                 errors.AppendLine("Укажите тип агента");
             else
             {
-                AgentType id = Zelentsov_eyesEntities.GetContext().AgentType.ToList().Where(p =>
-                TypeCB.Text == p.Title
-            ).ToList()[0];
+            //    AgentType id = Zelentsov_eyesEntities.GetContext().AgentType.ToList().Where(p =>
+            //    TypeCB.Text == p.Title
+            //).ToList()[0];
 
-                CurrentAgent.AgentTypeID = id.ID;
+                CurrentAgent.AgentTypeID = TypeCB.SelectedIndex + 1;
             }
             if (string.IsNullOrWhiteSpace(CurrentAgent.Priority.ToString())) 
                 errors.AppendLine("Укажите приоритет агента");
@@ -118,6 +120,12 @@ namespace Zelentsov_eyes
 
         private void ChangeLogoBtn_Click(object sender, RoutedEventArgs e)
         {
+            OpenFileDialog fileDialog = new OpenFileDialog();
+            if(fileDialog.ShowDialog() == true)
+            {
+                CurrentAgent.Logo = fileDialog.FileName;
+                ImageLogo.Source = new BitmapImage(new Uri(fileDialog.FileName));
+            }
         }
     }
 }

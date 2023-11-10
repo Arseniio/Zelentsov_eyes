@@ -204,19 +204,58 @@ namespace Zelentsov_eyes
             updateservices();
         }
 
-        private void addBtn_Click(object sender, RoutedEventArgs e)
-        {
-            FrameSetter.iFrame.Navigate(new AddEditPage());
-        }
+        
 
         private void Grid_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
         {
             updateservices();
         }
 
+
+        private void AgentsListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if(AgentsListView.SelectedItems.Count > 1)
+            {
+                ChangePrBtn.Visibility = Visibility.Visible;
+            }
+            else
+            {
+                ChangePrBtn.Visibility = Visibility.Hidden;
+            }
+        }
+
+        private void ChangePrBtn_Click(object sender, RoutedEventArgs e)
+        {
+            PriorityWindow window = new PriorityWindow();
+            window.ShowDialog();
+            if (string.IsNullOrEmpty(window.PriorityTb.Text))
+            {
+                return;
+            }
+            MessageBox.Show(window.PriorityTb.Text);
+            foreach (Agent AgentLV in AgentsListView.SelectedItems)
+            {
+                AgentLV.Priority = Convert.ToInt32(window.PriorityTb.Text);
+            }
+            try
+            {
+                Zelentsov_eyesEntities.GetContext().SaveChanges();
+                MessageBox.Show("Информация сохранена");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message.ToString());
+            }
+            updateservices();
+        }
+
         private void CBFilter_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             updateservices();
+        }
+        private void addBtn_Click(object sender, RoutedEventArgs e)
+        {
+            FrameSetter.iFrame.Navigate(new AddEditPage());
         }
         private void EditButton_Click(object sender, RoutedEventArgs e) {
             FrameSetter.iFrame.Navigate(new AddEditPage((sender as Button).DataContext as Agent));
