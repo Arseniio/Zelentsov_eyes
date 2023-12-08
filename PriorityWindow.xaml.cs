@@ -19,9 +19,10 @@ namespace Zelentsov_eyes
     /// </summary>
     public partial class PriorityWindow : Window
     {
-        public PriorityWindow()
+        public PriorityWindow(int max)
         {
             InitializeComponent();
+            PriorityTb.Text = max.ToString();
         }
 
         private void SaveBtn_Click(object sender, RoutedEventArgs e)

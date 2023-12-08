@@ -226,7 +226,12 @@ namespace Zelentsov_eyes
 
         private void ChangePrBtn_Click(object sender, RoutedEventArgs e)
         {
-            PriorityWindow window = new PriorityWindow();
+            int max = 0;
+            foreach (Agent agent in AgentsListView.SelectedItems)
+            {
+                if(max < agent.Priority) max = agent.Priority;
+            }
+            PriorityWindow window = new PriorityWindow(max);
             window.ShowDialog();
             if (string.IsNullOrEmpty(window.PriorityTb.Text))
             {

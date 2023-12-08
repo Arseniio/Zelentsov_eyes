@@ -22,6 +22,9 @@ namespace Zelentsov_eyes
     public partial class AddEditPage : Page
     {
         private Agent CurrentAgent = new Agent();
+        
+
+
         public AddEditPage(Agent SelectedAgent = null)
         {
             InitializeComponent();
@@ -31,8 +34,9 @@ namespace Zelentsov_eyes
                 TypeCB.SelectedIndex = CurrentAgent.AgentTypeID-1;
             }
             DataContext = CurrentAgent;
-        }
 
+        }
+        
         private void DeleteBtn_Click(object sender, RoutedEventArgs e)
         {
             if (DataContext == null) { return; }
@@ -126,6 +130,11 @@ namespace Zelentsov_eyes
                 CurrentAgent.Logo = fileDialog.FileName;
                 ImageLogo.Source = new BitmapImage(new Uri(fileDialog.FileName));
             }
+        }
+
+        private void SalesBtn_Click(object sender, RoutedEventArgs e)
+        {
+            FrameSetter.iFrame.Navigate(new SalesHistPage(CurrentAgent));
         }
     }
 }

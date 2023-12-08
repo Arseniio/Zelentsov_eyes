@@ -5,17 +5,17 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:Zelentsov_eyes"
       mc:Ignorable="d" 
-      d:DesignHeight="301" d:DesignWidth="784"
-      FontFamily="Century Gothic" Height="301" Width="784" 
+      d:DesignHeight="301" d:DesignWidth="800"
+      FontFamily="Century Gothic" Height="301" Width="800" 
       Title="AddEditPage">
 
 
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
+            <ColumnDefinition Width="169*"/>
+            <ColumnDefinition Width="162*"/>
+            <ColumnDefinition Width="130*"/>
+            <ColumnDefinition Width="125*"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition/>
@@ -27,30 +27,30 @@
             <RowDefinition Height="1.5*"/>
             <RowDefinition Height="1.5*"/>
         </Grid.RowDefinitions>
-        <TextBlock Margin="3 0 0 0" Grid.Row="0" VerticalAlignment="Center" FontSize="20" Text="Наименование"/>
-        <TextBox Grid.Column="1" Width="185" Height="26" Text="{Binding Title}" />
+        <TextBlock Margin="3,0,0,0" VerticalAlignment="Center" FontSize="20" Text="Наименование" Height="25"/>
+        <TextBox Grid.Column="1" Text="{Binding Title}" Margin="6,4,6,3" />
 
-        <TextBlock Margin="3 0 0 0" Grid.Row="1" VerticalAlignment="Center" FontSize="20" Text="Адрес"/>
-        <TextBox Grid.Row="1" Grid.Column="1" Width="185" Height="26" Text="{Binding Address}" />
+        <TextBlock Margin="3,0,0,0" Grid.Row="1" VerticalAlignment="Center" FontSize="20" Text="Адрес" Height="24"/>
+        <TextBox Grid.Row="1" Grid.Column="1" Text="{Binding Address}" Margin="6,4,6,4" />
 
 
-        <TextBlock Margin="3 0 0 0" Grid.Row="2" VerticalAlignment="Center" FontSize="20" Text="Директор"/>
-        <TextBox Grid.Row="2" Grid.Column="1" Width="185" Height="26" Text="{Binding DirectorName}"/>
+        <TextBlock Margin="3,0,0,0" Grid.Row="2" VerticalAlignment="Center" FontSize="20" Text="Директор" Height="25"/>
+        <TextBox Grid.Row="2" Grid.Column="1" Text="{Binding DirectorName}" Margin="6,4,6,3"/>
 
-        <TextBlock Margin="3 0 0 0" Grid.Row="4" VerticalAlignment="Center" FontSize="20" Text="Логотип"/>
+        <TextBlock Margin="3,0,0,0" Grid.Row="4" VerticalAlignment="Center" FontSize="20" Text="Логотип" Height="25"/>
 
-        <TextBlock Margin="3 0 0 0" Grid.Row="0" Grid.Column="2" VerticalAlignment="Center" FontSize="20" Text="Телефон"/>
-        <TextBox Grid.Row="0" Grid.Column="3" Width="165" Height="26" Text="{Binding Phone}"/>
-        <TextBlock Margin="3 0 0 0" Grid.Row="1" Grid.Column="2" VerticalAlignment="Center" FontSize="20" Text="Приоритет"/>
-        <TextBox Grid.Row="1" Grid.Column="3" Width="165" Height="26" Text="{Binding Priority}"/>
-        <TextBlock Margin="3 0 0 0" Grid.Row="2" Grid.Column="2" VerticalAlignment="Center" FontSize="20" Text="Эл почта"/>
-        <TextBox Grid.Row="2" Grid.Column="3" Width="165" Height="26" Text="{Binding Email}"/>
-        <TextBlock Margin="3 0 0 0" Grid.Row="3" Grid.Column="2" VerticalAlignment="Center" FontSize="20" Text="ИНН"/>
-        <TextBox Grid.Row="3" Grid.Column="3" Width="165" Height="26" Text="{Binding INN}"/>
-        <TextBlock Margin="3 0 0 0" Grid.Row="4" Grid.Column="2" VerticalAlignment="Center" FontSize="20" Text="КПП"/>
-        <TextBox Grid.Row="4" Grid.Column="3" Width="165" Height="26" Text="{Binding KPP}"/>
-        <TextBlock Margin="3 0 0 0" Grid.Row="5" Grid.Column="2" VerticalAlignment="Center" FontSize="20" Text="Тип"/>
-        <ComboBox Name="TypeCB" VerticalAlignment="Center" Grid.Row="5" Grid.Column="3" Width="165" Height="26">
+        <TextBlock Margin="3,0,0,0" Grid.Column="2" VerticalAlignment="Center" FontSize="20" Text="Телефон" Height="25"/>
+        <TextBox Grid.Row="0" Grid.Column="3" Text="{Binding Phone}" Margin="17,4,17,3" />
+        <TextBlock Margin="3,0,0,0" Grid.Row="1" Grid.Column="2" VerticalAlignment="Center" FontSize="20" Text="Приоритет" Height="24"/>
+        <TextBox Grid.Row="1" Grid.Column="3" Text="{Binding Priority}" Margin="17,4,17,4" />
+        <TextBlock Margin="3,0,0,0" Grid.Row="2" Grid.Column="2" VerticalAlignment="Center" FontSize="20" Text="Эл почта" Height="25"/>
+        <TextBox Grid.Row="2" Grid.Column="3" Text="{Binding Email}" Margin="17,4,17,3" />
+        <TextBlock Margin="3,0,0,0" Grid.Row="3" Grid.Column="2" VerticalAlignment="Center" FontSize="20" Text="ИНН" Height="24"/>
+        <TextBox Grid.Row="3" Grid.Column="3" Text="{Binding INN}" Margin="17,4,17,4" />
+        <TextBlock Margin="3,0,0,0" Grid.Row="4" Grid.Column="2" VerticalAlignment="Center" FontSize="20" Text="КПП" Height="25"/>
+        <TextBox Grid.Row="4" Grid.Column="3" Text="{Binding KPP}" Margin="17,4,17,3" />
+        <TextBlock Margin="3,0,0,0" Grid.Row="5" Grid.Column="2" VerticalAlignment="Center" FontSize="20" Text="Тип" Height="24"/>
+        <ComboBox Name="TypeCB" VerticalAlignment="Center" Grid.Row="5" Grid.Column="3" Height="26" Margin="17,0,17,0" >
             <TextBlock>ЗАО</TextBlock>
             <TextBlock>МКК</TextBlock>
             <TextBlock>МФО</TextBlock>
@@ -58,9 +58,10 @@
             <TextBlock>ООО</TextBlock>
             <TextBlock>ПАО</TextBlock>
         </ComboBox>
-        <Image Source="{Binding Logo}" Name="ImageLogo" Grid.Column="1" Grid.RowSpan="3" Grid.Row="4"/>
-        <Button Grid.Row="7" Grid.Column="1" Width="120" Height="26" Content="Изменить" Name="ChangeLogoBtn" Click="ChangeLogoBtn_Click"/>
-        <Button Grid.Row="7" Grid.Column="2" Width="120" Height="26" Content="Сохранить" Name="SaveBtn" Click="SaveBtn_Click"/>
-        <Button Grid.Row="7" Grid.Column="3" Width="120" Height="26" Opacity="{Binding ID}" Content="Удалить" Name="DeleteBtn" Click="DeleteBtn_Click"/>
+        <Image Source="{Binding Logo}" Name="ImageLogo" Grid.Column="1" Grid.RowSpan="4" Grid.Row="4" Margin="0,0,0,50"/>
+        <Button Grid.Row="7" Grid.Column="1" Content="Изменить" Name="ChangeLogoBtn" Click="ChangeLogoBtn_Click" Margin="38,12,38,12"/>
+        <Button Grid.Row="7" Grid.Column="2" Content="Сохранить" Name="SaveBtn" Click="SaveBtn_Click" Margin="15,12,37,12"/>
+        <Button Grid.Row="7" Grid.Column="0" Content="Изменить продажи" Name="SalesBtn" Click="SalesBtn_Click" Margin="15,12,37,12"/>
+        <Button Grid.Row="7" Grid.Column="3" Opacity="{Binding ID}" Content="Удалить" Name="DeleteBtn" Click="DeleteBtn_Click" Margin="39,12,21,12"/>
     </Grid>
 </Page>

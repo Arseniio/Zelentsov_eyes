@@ -5,9 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Zelentsov_eyes"
         mc:Ignorable="d"
-        Title="Зеленцов Глазки" FontFamily="Century Gothic" Height="450" Width="800" 
+        Title="Зеленцов Глазки" FontFamily="Century Gothic" Height="450" Width="850" 
         MinHeight="450" MinWidth="800"
-        MaxWidth="450"
         MaxHeight="1000"
         Icon="src/Глазки-save.ico">
     <Grid>

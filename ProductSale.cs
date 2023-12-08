@@ -18,8 +18,21 @@ namespace Zelentsov_eyes
         public int AgentID { get; set; }
         public int ProductID { get; set; }
         public System.DateTime SaleDate { get; set; }
+        public string Date
+        {
+            get
+            {
+                return (string)this.SaleDate.ToShortDateString();
+            }
+        }
         public int ProductCount { get; set; }
-        
+        public string Name
+        {
+            get
+            {
+                return Product.Title;
+            }
+        }
         public virtual Agent Agent { get; set; }
         public virtual Product Product { get; set; }
     }
